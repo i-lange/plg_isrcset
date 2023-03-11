@@ -1,0 +1,57 @@
+/*!
+ * @package    plg_isrcset
+ * @author     Pavel Lange <pavel@ilange.ru>
+ * @link       https://github.com/i-lange/plg_isrcset
+ * @copyright  (C) 2023 Pavel Lange <https://ilange.ru>
+ * @license    GNU General Public License version 2 or later
+ */
+
+.x1x1,
+.x16x9 {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    display: block;
+    content: "";
+  }
+
+  img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  iframe,
+  video,
+  object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Ratio 1:1
+ ========================================================================== */
+
+.x1x1:after {
+  padding-top: 100%;
+}
+
+/* Ratio 16:9
+ ========================================================================== */
+
+.x16x9:after {
+  padding-top: 56.25%;
+}
+
+.x16x9.video {
+  width: 100%;
+}
